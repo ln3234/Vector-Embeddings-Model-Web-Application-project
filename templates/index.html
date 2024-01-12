@@ -16,11 +16,9 @@
     </form>
     <div>
         <h3 style="font-family:verdana;">Write a poem using your chosen word and:</h3>
-        <ul>
-            {% for word, similarity in unrelated_word %}
-                { word }
-            {% endfor %}
-        </ul>
+            {% if unrelated_word %}
+                <p> {{ unrelated_word[0][0] }}<p>
+            {% endif %}
     </div>
 </center>
 </body>

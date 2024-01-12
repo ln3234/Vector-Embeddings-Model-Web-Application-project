@@ -17,7 +17,7 @@ def train_save_model(text):
     processed_text = preprocess_text(text)
     sentences = nltk.sent_tokenize(text)
     processed_sentences = [preprocess_text(sentence) for sentence in sentences]
-    model = Word2Vec(sentences=processed_sentences, vector_size=30, window=5, min_count=2)
+    model = Word2Vec(sentences=processed_sentences, vector_size=150, window=5, min_count=3)
     model.save("word2vec.model")
 
 def get_wikipedia_content(page_title):
@@ -27,7 +27,7 @@ def get_wikipedia_content(page_title):
     return page.text if page.exists() else "Page not found."
 
 # Load wikipedia pages, make them one and run functions
-page_titles = ["Romance", "Anger", "General Relativity", "Pop Music", "Romanticism", "Jerusalem", "Monarchy", "French revolution", "The Buddha", "Martial arts", "Gregorian chant", "Red panda", "Dentistry", "Cowboy Bebop"]
+page_titles = ["Romance (love)", "Anger", "General Relativity", "Pop Music", "Romanticism", "Jerusalem", "Monarchy", "French revolution", "The Buddha", "Martial arts", "Gregorian chant", "Red panda", "Dentistry", "Cowboy Bebop"]
 wikipedia_text = " "
 
 for page in page_titles:
